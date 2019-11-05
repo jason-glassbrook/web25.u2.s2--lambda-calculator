@@ -1,10 +1,13 @@
 import React from "react";
+import CalculatorButton from "../CalculatorButton";
 
 const NumberButton = (props) => {
   return (
-    <button className="number-button" data-value={props.value} onClick={props.onClick}>
-      {/* Display a button element rendering the data being passed down from the parent container on props */}
-      {props.char}
-    </button>
+    <CalculatorButton
+      role="number"
+      char={props.char}
+      value={props.value}
+      onClick={props.onClick}
+    />
   );
 };
