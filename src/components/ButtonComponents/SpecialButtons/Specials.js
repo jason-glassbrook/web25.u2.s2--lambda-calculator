@@ -20,8 +20,9 @@ const Specials = (props) => {
   return (
     <ButtonsGroup name="specials">
       {/* STEP 3 - Use .map() to iterate over your array data and return a button component matching the name on the provided file. Pass it any props needed by the child component. */}
-      {specials.map ((el , i) => (
+      {specials.map ((el) => (
         <SpecialButton
+          key={`special ${el.char}`}
           char={el.char}
           value={el.value}
           onClick={() => {}}
