@@ -1,3 +1,7 @@
+/***********************************************************
+  CONTAINER
+***********************************************************/
+
 .container {
   background-color: #c00025;
 
@@ -23,6 +27,10 @@
   margin-bottom: 0;
 }
 
+/***********************************************************
+  APP : CALCULATOR
+***********************************************************/
+
 .App > div {
   width: 100%;
   margin: 25px 0;
@@ -33,6 +41,10 @@
 .App > div:last-child {
   margin-bottom: 0;
 }
+
+/***************************************
+  DISPLAY
+***************************************/
 
 .display {
   display: flex;
@@ -48,3 +60,36 @@
   background-color: #322c2d;
   box-shadow: 1px 1px #322c2d;
 }
+
+/***************************************
+  BUTTONS GROUPS
+***************************************/
+
+.buttons-group {
+  display: flex;
+}
+
+.buttons-group.groups {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.buttons-group.specials {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.buttons-group.numbers {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.buttons-group.operators {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+/***************************************
+  BUTTONS
+***************************************/
+
