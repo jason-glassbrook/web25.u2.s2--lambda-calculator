@@ -74,14 +74,14 @@ Using the design file, build out your User Interface. Before you start, look thr
 
 #### STEP 3
 
--   Map over the data and dynamically render components for each piece of data in the arrays.
--   You will need to import the component that you'll render in the map function.
+-   [x] Map over the data and dynamically render components for each piece of data in the arrays.
+-   [x] You will need to import the component that you'll render in the map function.
 
 #### STEP 4
 
--   Import the wrapper button components into `App.js`
--   Import the display components into `App.js` as well
--   Compose all the components inside the `App` component to get your calculator rendering on the DOM
+-   [x] Import the wrapper button components into `App.js`
+-   [x] Import the display components into `App.js` as well
+-   [x] Compose all the components inside the `App` component to get your calculator rendering on the DOM
 
 #### STEP 5 - (STRETCH)
 
