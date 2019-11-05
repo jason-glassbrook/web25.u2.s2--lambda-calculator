@@ -1,6 +1,7 @@
 import React from "react";
 
 // import any components needed
+import ButtonsGroup from "../ButtonsGroup";
 import NumberButton from "./NumberButton";
 // import your array data to from the provided data file
 import { numbers as numbersRawData } from "../../../data";
@@ -17,7 +18,7 @@ const Numbers = (props) => {
   const [numbers , setNumbers] = React.useState (numbersData);
   //
   return (
-    <div className="button-group numbers">
+    <ButtonsGroup name="numbers">
       {/* STEP 3 - Use .map() to iterate over your array data and return a button component matching the name on the provided file. Pass it any props needed by the child component. */}
       {numbers.map ((el , i) => (
         <NumberButton
@@ -26,7 +27,7 @@ const Numbers = (props) => {
           onClick={() => {}}
         />
       ))}
-    </div>
+    </ButtonsGroup>
   );
 };
 
