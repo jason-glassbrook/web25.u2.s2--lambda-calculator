@@ -1,9 +1,9 @@
 import React from "react";
-import CalculatorButton from "../CalculatorButton";
+import Button from "../Button";
 
 const SpecialButton = (props) => {
   return (
-    <CalculatorButton
+    <Button
       role="special"
       char={props.char}
       value={props.value}

@@ -1,9 +1,9 @@
 import React from "react";
-import CalculatorButton from "../CalculatorButton";
+import Button from "../Button";
 
 const OperatorButton = (props) => {
   return (
-    <CalculatorButton
+    <Button
       role="operator"
       char={props.char}
       value={props.value}
