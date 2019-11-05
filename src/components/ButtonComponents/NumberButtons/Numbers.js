@@ -19,7 +19,13 @@ const Numbers = (props) => {
   return (
     <div className="button-group numbers">
       {/* STEP 3 - Use .map() to iterate over your array data and return a button component matching the name on the provided file. Pass it any props needed by the child component. */}
-
+      {numbers.map ((el , i) => (
+        <NumberButton
+          char={el.char}
+          value={el.value}
+          onClick={() => {}}
+        />
+      ))}
     </div>
   );
 };
