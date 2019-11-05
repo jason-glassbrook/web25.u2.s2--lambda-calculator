@@ -23,6 +23,17 @@
   margin-bottom: 0;
 }
 
+.App > div {
+  width: 100%;
+  margin: 25px 0;
+}
+.App > div:first-child {
+  margin-top: 0;
+}
+.App > div:last-child {
+  margin-bottom: 0;
+}
+
 .display {
   display: flex;
   justify-content: flex-end;
@@ -37,5 +48,3 @@
   background-color: #322c2d;
   box-shadow: 1px 1px #322c2d;
 }
-
-
