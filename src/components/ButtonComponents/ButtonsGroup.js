@@ -1,9 +1,9 @@
 import React from "react";
 
-const ButtonsGroup = (props , children) => {
+const ButtonsGroup = (props) => {
   return (
     <div className={`buttons-group ${props.name}`}>
-      {children}
+      {props.children}
     </div>
   );
 };
