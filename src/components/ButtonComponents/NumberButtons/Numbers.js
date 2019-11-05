@@ -10,10 +10,8 @@ const Numbers = () => {
   const [numbers , setNumbers] = React.useState (numbersData);
   //
   return (
-    <div>
-      {/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
-    </div>
+    <div>{
+      /* STEP 3 - Use .map() to iterate over your array data and return a button component matching the name on the provided file. Pass it any props needed by the child component. */
+    }</div>
   );
 };
