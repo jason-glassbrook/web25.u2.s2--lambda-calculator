@@ -3,11 +3,12 @@ import React from "react";
 // import any components needed
 import SpecialButton from "./SpecialButton";
 // import your array data to from the provided data file
-import { specials } from "../../../data";
+import { specials as specialsData } from "../../../data";
 
 const Specials = () => {
   // STEP 2 - add the imported data to state
-
+  const [specials , setSpecials] = React.useState (specialsData);
+  //
   return (
     <div>
       {/* STEP 3 - Use .map() to iterate over your array data and return a button

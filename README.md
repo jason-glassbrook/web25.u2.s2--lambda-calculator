@@ -62,15 +62,15 @@ Using the design file, build out your User Interface. Before you start, look thr
 
 #### STEP 2
 
-Add the data to state like this:
+-   [x] Add the data to state like this:
 
-```js
-import { numbers } from '../path/to/data';
+    ```js
+    import { numbers } from '../path/to/data';
 
-...
+    ...
 
-const [numberState, setNumberState] = useState(numbers);
-```
+    const [numberState, setNumberState] = useState(numbers);
+    ```
 
 #### STEP 3
 
