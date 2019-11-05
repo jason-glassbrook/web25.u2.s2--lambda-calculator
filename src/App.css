@@ -65,26 +65,26 @@
   BUTTONS GROUPS
 ***************************************/
 
-.buttons-group {
+.App .buttons-group {
   display: flex;
 }
 
-.buttons-group.groups {
+.App .buttons-group.groups {
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.buttons-group.specials {
+.App .buttons-group.specials {
   flex-direction: row;
   flex-wrap: nowrap;
 }
 
-.buttons-group.numbers {
+.App .buttons-group.numbers {
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.buttons-group.operators {
+.App .buttons-group.operators {
   flex-direction: column;
   flex-wrap: nowrap;
 }
@@ -93,3 +93,6 @@
   BUTTONS
 ***************************************/
 
+.App button {
+
+}
