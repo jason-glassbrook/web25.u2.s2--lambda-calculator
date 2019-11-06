@@ -58,6 +58,7 @@ const addClick =
   (setStory , setWasClicked) =>
   ({ type , char , value }) =>
   {
+    console.log (`clicked: [${char}]`);
     setStory (
       (story) => {
         const clicks = story["clicks"];
@@ -141,10 +142,14 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
+  
+  /// states ///
   const [story , setStory] = React.useState (initStory);
   const [wasClicked , setWasClicked] = React.useState (initWasClicked);
   const [wasTokenized , setWasTokenized] = React.useState (initWasTokenized);
   const [wasComposed , setWasComposed] = React.useState (initWasComposed);
+
+  /// effects ///
 
   return (
     <div className="container">
