@@ -23,7 +23,10 @@ const initState = {
   ],
   // the "tokens" constructed from clicks
   "tokens" : [
-    "0",
+    {
+      "type"  : "number",
+      "value" : 0,
+    },
   ],
   // the final values
   "values" : [
