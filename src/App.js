@@ -15,7 +15,7 @@ import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
   STATE HANDLERS
 ***********************************************************/
 // initial state
-const initState = {
+const initStory = {
   // the series of clicks
   "clicks" : [
     {
@@ -41,10 +41,10 @@ const initState = {
   CLICKS
 ***************************************/
 // handle generic clicks on buttons
-const addClick = (setState) => ({ type , char , value }) => {
-  setState (
-    (oldState) => {
-      const clicks = oldState["clicks"];
+const addClick = (setStory) => ({ type , char , value }) => {
+  setStory (
+    (story) => {
+      const clicks = story["clicks"];
       clicks.shift ({
         "type"  : type,
         "char"  : char,
@@ -57,27 +57,27 @@ const addClick = (setState) => ({ type , char , value }) => {
 
 // handle clicks on special buttons
 const addSpecialClick =
-  (setState) =>
+  (setStory) =>
   (data) =>
-  (addClick (setState) ({
+  (addClick (setStory) ({
     "type" : "special",
     ...data,
   }));
 
 // handle clicks on digit buttons
 const addDigitClick =
-  (setState) =>
+  (setStory) =>
   (data) =>
-  (addClick (setState) ({
+  (addClick (setStory) ({
     "type" : "digit",
     ...data,
   }));
 
 // handle clicks on operator buttons
 const addOperatorClick =
-  (setState) =>
+  (setStory) =>
   (data) =>
-  (addClick (setState) ({
+  (addClick (setStory) ({
     "type" : "operator",
     ...data,
   }));
@@ -86,10 +86,10 @@ const addOperatorClick =
   TOKENS
 ***************************************/
 // handle composing tokens
-const addToken = (setState) => ({ type , value }) => {
-  setState (
-    (oldState) => {
-      const tokens = oldState["tokens"];
+const addToken = (setStory) => ({ type , value }) => {
+  setStory (
+    (story) => {
+      const tokens = story["tokens"];
       tokens.shift ({
         "type"  : type,
         "value" : value,
@@ -103,10 +103,10 @@ const addToken = (setState) => ({ type , value }) => {
   VALUES
 ***************************************/
 // handle updating values
-const addValue = (setState) => ({ value }) => {
-  setState (
-    (oldState) => {
-      const values = oldState["values"];
+const addValue = (setStory) => ({ value }) => {
+  setStory (
+    (story) => {
+      const values = story["values"];
       values.shift (value);
       return ({ "values" : values });
     }
@@ -122,23 +122,23 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
-  const [state , setState] = React.useState (initState);
+  const [story , setStory] = React.useState (initStory);
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-        <Display value={state.values[0]}/>
+        <Display value={story.values[0]}/>
         <ButtonsGroup name="groups">
           <Specials
-            onClick={addSpecialClick (setState)}
+            onClick={addSpecialClick (setStory)}
           />
           <Numbers
-            onClick={addDigitClick (setState)}
+            onClick={addDigitClick (setStory)}
           />
           <Operators
-            onClick={addOperatorClick (setState)}
+            onClick={addOperatorClick (setStory)}
           />
         </ButtonsGroup>
       </div>
