@@ -58,7 +58,6 @@ const addClick =
   (setStory , setWasClicked) =>
   ({ type , char , value }) =>
   {
-    console.log (`clicked: [${type} "${char}"]`);
     setStory (
       (story) => {
         const clicks = story["clicks"];
@@ -71,6 +70,7 @@ const addClick =
       }
     );
     setWasClicked (true);
+    console.log (`clicked: [${type} "${char}"]`);
   };
 
 // handle clicks on special buttons
