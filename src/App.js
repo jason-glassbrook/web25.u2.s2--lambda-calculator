@@ -11,6 +11,9 @@ import Numbers from "./components/ButtonComponents/NumberButtons/Numbers";
 import Operators from "./components/ButtonComponents/OperatorButtons/Operators";
 import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 
+/***********************************************************
+  STATE HANDLERS
+***********************************************************/
 // initial state
 const initState = {
   // the series of clicks
@@ -34,7 +37,10 @@ const initState = {
   ]
 }
 
-// handle clicks on buttons
+/***************************************
+  CLICKS
+***************************************/
+// handle generic clicks on buttons
 const addClick = (setState) => ({ type , char , value }) => {
   setState (
     (oldState) => {
@@ -49,6 +55,36 @@ const addClick = (setState) => ({ type , char , value }) => {
   );
 };
 
+// handle clicks on special buttons
+const addSpecialClick =
+  (setState) =>
+  (data) =>
+  (addClick (setState) ({
+    "type" : "special",
+    ...data,
+  }));
+
+// handle clicks on digit buttons
+const addDigitClick =
+  (setState) =>
+  (data) =>
+  (addClick (setState) ({
+    "type" : "digit",
+    ...data,
+  }));
+
+// handle clicks on operator buttons
+const addOperatorClick =
+  (setState) =>
+  (data) =>
+  (addClick (setState) ({
+    "type" : "operator",
+    ...data,
+  }));
+
+/***************************************
+  TOKENS
+***************************************/
 // handle composing tokens
 const addToken = (setState) => ({ type , value }) => {
   setState (
@@ -63,6 +99,9 @@ const addToken = (setState) => ({ type , value }) => {
   );
 };
 
+/***************************************
+  VALUES
+***************************************/
 // handle updating values
 const addValue = (setState) => ({ value }) => {
   setState (
@@ -74,6 +113,9 @@ const addValue = (setState) => ({ value }) => {
   );
 };
 
+/***********************************************************
+  APP
+***********************************************************/
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
@@ -89,9 +131,15 @@ function App() {
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <Display value={state.values[0]}/>
         <ButtonsGroup name="groups">
-          <Specials/>
-          <Numbers/>
-          <Operators/>
+          <Specials
+            onClick={addSpecialClick (setState)}
+          />
+          <Numbers
+            onClick={addDigitClick (setState)}
+          />
+          <Operators
+            onClick={addOperatorClick (setState)}
+          />
         </ButtonsGroup>
       </div>
     </div>
