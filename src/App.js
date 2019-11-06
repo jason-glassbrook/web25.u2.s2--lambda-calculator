@@ -14,7 +14,11 @@ import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 /***********************************************************
   STATE HANDLERS
 ***********************************************************/
-// initial state
+
+/***************************************
+  INITIAL STATE
+***************************************/
+// story
 const initStory = {
   // the series of clicks
   "clicks" : [
@@ -35,7 +39,10 @@ const initStory = {
   "values" : [
     0,
   ]
-}
+};
+
+// flag composition
+const initWasClicked = false;
 
 /***************************************
   CLICKS
@@ -123,6 +130,7 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
   const [story , setStory] = React.useState (initStory);
+  const [wasClicked , setWasClicked] = React.useState (initWasClicked);
 
   return (
     <div className="container">
