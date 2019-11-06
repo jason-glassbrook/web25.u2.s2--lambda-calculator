@@ -58,6 +58,7 @@ const addClick =
   (setStory , setWasClicked) =>
   ({ type , char , value }) =>
   {
+    /* [TESTING] */ console.log (`clicked: [${type} "${char}"]`);
     setStory (
       (story) => {
         const clicks = story["clicks"];
@@ -66,11 +67,12 @@ const addClick =
           "char"  : char,
           "value" : value,
         });
+        /* [TESTING] */ console.log (clicks);
         return ({ ...story , "clicks" : clicks });
       }
     );
     setWasClicked (true);
-    console.log (`clicked: [${type} "${char}"]`);
+    console.log (`... handled it.`); // TESTING
   };
 
 // handle clicks on special buttons
@@ -105,6 +107,9 @@ const addOperatorClick =
 ***************************************/
 // handle composing tokens
 const addToken = (setStory , setWasTokenized) => ({ type , value }) => {
+  /* [TESTING] */ console.log (`tokenizing?`);
+  /* [TESTING] */ console.log (type);
+  /* [TESTING] */ console.log (value);
   setStory (
     (story) => {
       const tokens = story["tokens"];
@@ -112,10 +117,12 @@ const addToken = (setStory , setWasTokenized) => ({ type , value }) => {
         "type"  : type,
         "value" : value,
       });
+      /* [TESTING] */ console.log (tokens);
       return ({ ...story , "tokens" : tokens });
     }
   );
   setWasTokenized (true);
+  /* [TESTING] */ console.log (`... handled it.`);
 };
 
 /***************************************
@@ -123,14 +130,18 @@ const addToken = (setStory , setWasTokenized) => ({ type , value }) => {
 ***************************************/
 // handle updating values
 const addValue = (setStory , setWasComposed) => ({ value }) => {
+  /* [TESTING] */ console.log (`composing?`);
+  /* [TESTING] */ console.log (value);
   setStory (
     (story) => {
       const values = story["values"];
       values.shift (value);
+      /* [TESTING] */ console.log (values);
       return ({ ...story , "values" : values });
     }
   );
   setWasComposed (true);
+  /* [TESTING] */ console.log (`... handled it.`);
 };
 
 /***********************************************************
@@ -148,15 +159,24 @@ function App() {
   const [wasClicked , setWasClicked] = React.useState (initWasClicked);
   const [wasTokenized , setWasTokenized] = React.useState (initWasTokenized);
   const [wasComposed , setWasComposed] = React.useState (initWasComposed);
+  const [output , setOutput] = React.useState (story.values[0]);
 
   /// effects ///
+  // when something was clicked...
+  React.useEffect (() => {
+    // console.log (wasClicked);
+    if (wasClicked) {
+      /* [TESTING] */ setOutput (story.values[0]);
+      setWasClicked (false);
+    }
+  } , [wasClicked]);
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-        <Display value={story.values[0]}/>
+        <Display value={output}/>
         <ButtonsGroup name="groups">
           <Specials
             onClick={addSpecialClick (setStory , setWasClicked)}
