@@ -13,16 +13,22 @@ import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 
 // initial state
 const initState = {
-  "actions" : [
+  // the series of clicks
+  "clicks" : [
     {
       "type"  : "init",
       "char"  : "0",
-      "value" : 0,
+      "value" : "0",
     }
   ],
-  "values" : [
-    0
+  // the "tokens" constructed from clicks
+  "tokens" : [
+    "0",
   ],
+  // the final values
+  "values" : [
+    0,
+  ]
 }
 
 function App() {
