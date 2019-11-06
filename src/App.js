@@ -48,43 +48,47 @@ const initWasClicked = false;
   CLICKS
 ***************************************/
 // handle generic clicks on buttons
-const addClick = (setStory) => ({ type , char , value }) => {
-  setStory (
-    (story) => {
-      const clicks = story["clicks"];
-      clicks.shift ({
-        "type"  : type,
-        "char"  : char,
-        "value" : value,
-      });
-      return ({ "clicks" : clicks });
-    }
-  );
-};
+const addClick =
+  (setStory , setWasClicked) =>
+  ({ type , char , value }) =>
+  {
+    setStory (
+      (story) => {
+        const clicks = story["clicks"];
+        clicks.shift ({
+          "type"  : type,
+          "char"  : char,
+          "value" : value,
+        });
+        return ({ "clicks" : clicks });
+      }
+    );
+    setWasClicked (true);
+  };
 
 // handle clicks on special buttons
 const addSpecialClick =
-  (setStory) =>
+  (...setters) =>
   (data) =>
-  (addClick (setStory) ({
+  (addClick (...setters) ({
     "type" : "special",
     ...data,
   }));
 
 // handle clicks on digit buttons
 const addDigitClick =
-  (setStory) =>
+  (...setters) =>
   (data) =>
-  (addClick (setStory) ({
+  (addClick (...setters) ({
     "type" : "digit",
     ...data,
   }));
 
 // handle clicks on operator buttons
 const addOperatorClick =
-  (setStory) =>
+  (...setters) =>
   (data) =>
-  (addClick (setStory) ({
+  (addClick (...setters) ({
     "type" : "operator",
     ...data,
   }));
@@ -140,13 +144,13 @@ function App() {
         <Display value={story.values[0]}/>
         <ButtonsGroup name="groups">
           <Specials
-            onClick={addSpecialClick (setStory)}
+            onClick={addSpecialClick (setStory , setWasClicked)}
           />
           <Numbers
-            onClick={addDigitClick (setStory)}
+            onClick={addDigitClick (setStory , setWasClicked)}
           />
           <Operators
-            onClick={addOperatorClick (setStory)}
+            onClick={addOperatorClick (setStory , setWasClicked)}
           />
         </ButtonsGroup>
       </div>
