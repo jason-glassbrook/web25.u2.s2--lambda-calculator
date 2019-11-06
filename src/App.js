@@ -34,39 +34,42 @@ const initState = {
   ]
 }
 
+// handle clicks on buttons
 const addClick = (setState) => ({ type , char , value }) => {
   setState (
     (oldState) => {
-      const clicks = oldState["clicks"]
+      const clicks = oldState["clicks"];
       clicks.push ({
         "type"  : type,
         "char"  : char,
         "value" : value,
-      })
-      return ({ "clicks" : clicks })
+      });
+      return ({ "clicks" : clicks });
     }
   );
 };
 
+// handle composing tokens
 const addToken = (setState) => ({ type , value }) => {
   setState (
     (oldState) => {
-      const tokens = oldState["tokens"]
+      const tokens = oldState["tokens"];
       tokens.push ({
         "type"  : type,
         "value" : value,
-      })
-      return ({ "tokens" : tokens })
+      });
+      return ({ "tokens" : tokens });
     }
   );
 };
 
+// handle updating values
 const addValue = (setState) => ({ value }) => {
   setState (
     (oldState) => {
-      const values = oldState["values"]
-      values.push (value)
-      return ({ "values" : values })
+      const values = oldState["values"];
+      values.push (value);
+      return ({ "values" : values });
     }
   );
 };
