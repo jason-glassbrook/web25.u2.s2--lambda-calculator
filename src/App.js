@@ -48,6 +48,19 @@ const addClick = (setState) => ({ type , char , value }) => {
   );
 };
 
+const addToken = (setState) => ({ type , value }) => {
+  setState (
+    (oldState) => {
+      const tokens = oldState["tokens"]
+      tokens.push ({
+        "type"  : type,
+        "value" : value,
+      })
+      return ({ "tokens" : tokens })
+    }
+  );
+};
+
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
