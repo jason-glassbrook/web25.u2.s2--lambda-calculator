@@ -67,7 +67,7 @@ const addClick =
           "char"  : char,
           "value" : value,
         });
-        return ({ "clicks" : clicks });
+        return ({ ...story , "clicks" : clicks });
       }
     );
     setWasClicked (true);
@@ -112,7 +112,7 @@ const addToken = (setStory , setWasTokenized) => ({ type , value }) => {
         "type"  : type,
         "value" : value,
       });
-      return ({ "tokens" : tokens });
+      return ({ ...story , "tokens" : tokens });
     }
   );
   setWasTokenized (true);
@@ -127,7 +127,7 @@ const addValue = (setStory , setWasComposed) => ({ value }) => {
     (story) => {
       const values = story["values"];
       values.shift (value);
-      return ({ "values" : values });
+      return ({ ...story , "values" : values });
     }
   );
   setWasComposed (true);
