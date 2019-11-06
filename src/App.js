@@ -62,7 +62,8 @@ const addClick =
     setStory (
       (story) => {
         const clicks = story["clicks"];
-        clicks.shift ({
+        /* [TESTING] */ console.log (clicks);
+        clicks.unshift ({
           "type"  : type,
           "char"  : char,
           "value" : value,
@@ -113,7 +114,8 @@ const addToken = (setStory , setWasTokenized) => ({ type , value }) => {
   setStory (
     (story) => {
       const tokens = story["tokens"];
-      tokens.shift ({
+      /* [TESTING] */ console.log (tokens);
+      tokens.unshift ({
         "type"  : type,
         "value" : value,
       });
@@ -135,7 +137,8 @@ const addValue = (setStory , setWasComposed) => ({ value }) => {
   setStory (
     (story) => {
       const values = story["values"];
-      values.shift (value);
+      /* [TESTING] */ console.log (values);
+      values.unshift (value);
       /* [TESTING] */ console.log (values);
       return ({ ...story , "values" : values });
     }
