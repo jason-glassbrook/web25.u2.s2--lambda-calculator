@@ -25,7 +25,7 @@ const Numbers = (props) => {
           key={`number ${el.char}`}
           char={el.char}
           value={el.value}
-          onClick={() => {}}
+          onClick={() => (props.onClick (el))}
         />
       ))}
     </ButtonsGroup>

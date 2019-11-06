@@ -18,7 +18,7 @@ const Operators = (props) => {
           key={`operator ${el.char}`}
           char={el.char}
           value={el.value}
-          onClick={() => {}}
+          onClick={() => (props.onClick (el))}
         />
       ))}
     </ButtonsGroup>

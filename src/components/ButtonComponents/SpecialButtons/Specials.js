@@ -25,7 +25,7 @@ const Specials = (props) => {
           key={`special ${el.char}`}
           char={el.char}
           value={el.value}
-          onClick={() => {}}
+          onClick={() => (props.onClick (el))}
         />
       ))}
     </ButtonsGroup>

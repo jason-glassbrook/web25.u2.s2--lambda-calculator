@@ -58,7 +58,7 @@ const addClick =
   (setStory , setWasClicked) =>
   ({ type , char , value }) =>
   {
-    console.log (`clicked: [${char}]`);
+    console.log (`clicked: [${type} "${char}"]`);
     setStory (
       (story) => {
         const clicks = story["clicks"];
