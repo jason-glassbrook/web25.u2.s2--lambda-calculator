@@ -169,7 +169,7 @@ function App() {
   React.useEffect (() => {
     // console.log (wasClicked);
     if (wasClicked) {
-      /* [TESTING] */ setOutput (story.values[0]);
+      /* [TESTING] */ setOutput (story.clicks[0].char);
       setWasClicked (false);
     }
   } , [wasClicked]);
