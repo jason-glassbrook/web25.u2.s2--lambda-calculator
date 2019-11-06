@@ -41,8 +41,14 @@ const initStory = {
   ]
 };
 
-// flag composition
+// flag clicks for possible tokenization
 const initWasClicked = false;
+
+// flag tokenization for possible composition
+const initWasTokenized = false;
+
+// flag composition for display
+const initWasComposed = false;
 
 /***************************************
   CLICKS
@@ -97,7 +103,7 @@ const addOperatorClick =
   TOKENS
 ***************************************/
 // handle composing tokens
-const addToken = (setStory) => ({ type , value }) => {
+const addToken = (setStory , setWasTokenized) => ({ type , value }) => {
   setStory (
     (story) => {
       const tokens = story["tokens"];
@@ -108,13 +114,14 @@ const addToken = (setStory) => ({ type , value }) => {
       return ({ "tokens" : tokens });
     }
   );
+  setWasTokenized (true);
 };
 
 /***************************************
   VALUES
 ***************************************/
 // handle updating values
-const addValue = (setStory) => ({ value }) => {
+const addValue = (setStory , setWasComposed) => ({ value }) => {
   setStory (
     (story) => {
       const values = story["values"];
@@ -122,6 +129,7 @@ const addValue = (setStory) => ({ value }) => {
       return ({ "values" : values });
     }
   );
+  setWasComposed (true);
 };
 
 /***********************************************************
@@ -135,6 +143,8 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
   const [story , setStory] = React.useState (initStory);
   const [wasClicked , setWasClicked] = React.useState (initWasClicked);
+  const [wasTokenized , setWasTokenized] = React.useState (initWasTokenized);
+  const [wasComposed , setWasComposed] = React.useState (initWasComposed);
 
   return (
     <div className="container">
