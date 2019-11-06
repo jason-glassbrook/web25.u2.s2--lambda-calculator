@@ -13,7 +13,7 @@
   border-radius: 15px;
   border: 2px solid grey;
 
-  padding: 25px;
+  padding: 23px;
 }
 
 .container > div {
@@ -51,8 +51,8 @@
   justify-content: flex-end;
   align-items: flex-end;
 
-  height: 100px;
-  border-radius: 50px;
+  height: 96px;
+  border-radius: 48px;
   padding-right: 8%;
   font-size: 8.0rem;
 
@@ -72,21 +72,41 @@
 .App .buttons-group.groups {
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+
+  height: 568px;
+  width: 450px;
 }
 
 .App .buttons-group.specials {
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: space-between;
+
+  height: 96px;
+  width: 332px;
 }
 
 .App .buttons-group.numbers {
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+
+  height: 450px;
+  width: 332px;
 }
 
 .App .buttons-group.operators {
   flex-direction: column;
   flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: space-between;
+
+  height: 568px;
+  width: 96px;
 }
 
 /***************************************
@@ -94,5 +114,11 @@
 ***************************************/
 
 .App button {
+  height: 96px;
+  width: 96px;
+  border-radius: 48px;
+}
 
+.App button.number-button[data-value="0"] {
+  width: 214px;
 }
