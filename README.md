@@ -85,9 +85,9 @@ Using the design file, build out your User Interface. Before you start, look thr
 
 #### STEP 5 - (STRETCH)
 
--   In each component, start designing things to match the design file
--   Style your project using any of the techniques from the module
--   Don't forget about className vs class on your JSX elements!!
+-   [x] In each component, start designing things to match the design file
+-   [x] Style your project using any of the techniques from the module
+-   [x] Don't forget about className vs class on your JSX elements!!
 
 It's time to start thinking about functionality. Before getting into this, let's try and plan out all the moving pieces you'll need.
 
