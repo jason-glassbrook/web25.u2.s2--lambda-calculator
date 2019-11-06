@@ -39,7 +39,7 @@ const addClick = (setState) => ({ type , char , value }) => {
   setState (
     (oldState) => {
       const clicks = oldState["clicks"];
-      clicks.push ({
+      clicks.shift ({
         "type"  : type,
         "char"  : char,
         "value" : value,
@@ -54,7 +54,7 @@ const addToken = (setState) => ({ type , value }) => {
   setState (
     (oldState) => {
       const tokens = oldState["tokens"];
-      tokens.push ({
+      tokens.shift ({
         "type"  : type,
         "value" : value,
       });
@@ -68,7 +68,7 @@ const addValue = (setState) => ({ value }) => {
   setState (
     (oldState) => {
       const values = oldState["values"];
-      values.push (value);
+      values.shift (value);
       return ({ "values" : values });
     }
   );
@@ -87,7 +87,7 @@ function App() {
       <Logo />
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-        <Display value={0}/>
+        <Display value={state.values[0]}/>
         <ButtonsGroup name="groups">
           <Specials/>
           <Numbers/>
